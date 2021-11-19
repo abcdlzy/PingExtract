@@ -67,16 +67,22 @@ public class Main {
             }
         }
 
-
+        List<Double> latency=new ArrayList<>();
         //output
         for(int i=0;i<pingStatisticList.size();i++){
+            /*
             System.out.println(
                             pingStatisticList.get(i).seq+","+
                             pingStatisticList.get(i).minLatency+","+
                             pingStatisticList.get(i).maxLatency+","+
                             pingStatisticList.get(i).DUPCount);
+
+             */
+            latency.add(Double.parseDouble(String.valueOf(pingStatisticList.get(i).minLatency)));
         }
 
+
+        var variancelist= MinAvgVariance.GetMinAvgVariance(latency,30);
         System.out.println("");
 
     }
